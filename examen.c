@@ -12,26 +12,45 @@ int main()
     int vc[TOTAL] = {0}; 
     int po[MAX] = {0};
     int num = 0;
+    
     int v1 = MIN, v2 = 0, v3 = 0; 
     
     // Almacenar votos
     printf("¡COMIENZA EL CONCURSO! \n\n");
     printf("Introduce tus 3 votos separados por espacios\n");
-    while (v1 >= MIN && num < MAX) 
+    
+    while (!(v1 == -1) && num < MAX) 
     {
         printf("Eres el oyente %d \n", num);
         scanf("%d %d %d", &v1, &v2, &v3);
-        
-        if (v1 >= MIN) 
+        // que solo lea 3
+        char extra = ' ';
+        while (extra != '\n') 
         {
-            vo[num][0] = v1;
-            vo[num][1] = v2;
-            vo[num][2] = v3;
-            vc[v1] += 3;
-            vc[v2] += 2;
-            vc[v3] += 1;
+            scanf("%c", &extra);
+        }
         
-            num++;
+        if (v1 == -1) 
+        {
+            // holi profe, aqui no puede estar vacio jeje :P
+        }
+        else 
+        {
+            if (v1 >= MIN && v1 < TOTAL && v2 >= MIN && v2 < TOTAL && v3 >= MIN && v3 < TOTAL) 
+            {
+                vo[num][0] = v1;
+                vo[num][1] = v2;
+                vo[num][2] = v3;
+                vc[v1] += 3;
+                vc[v2] += 2;
+                vc[v3] += 1;
+            
+                num++;
+            }
+            else 
+            {
+                printf("ERROR \n ¡Las canciones solo van del 0 al 9 y son 3! \n Vuelve a intentar\n");
+            }
         }
     }
     
@@ -39,7 +58,7 @@ int main()
     int id_max1 = -1, max1 = -1;
     int id_max2 = -1, max2 = -1;
     
-    printf("Resultados de las votaciones\n");
+    printf("\nResultados de las votaciones\n");
     
     for (int i = 0; i < TOTAL; i++) 
     {
@@ -52,18 +71,17 @@ int main()
             max1 = vc[i];
             id_max1 = i;
         } 
-        else 
-          if (vc[i] > max2) 
-          {
+        else if (vc[i] > max2) 
+        {
             max2 = vc[i];
             id_max2 = i;
-          }
+        }
     }
     
-    printf("1a cancion\n %d\n\n", id_max1);
+    printf("\n1a cancion\n %d\n\n", id_max1);
     printf("2a cancion\n %d\n\n", id_max2);
     
-    //Repartir puntos
+    // Repartir puntos
     int ganador = -1;
     int maxp = -1;
     
