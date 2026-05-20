@@ -105,6 +105,8 @@ int main()
         if (bienprimera == 1 && biensegunda == 1) 
           po[i] += 10; 
         
+        printf("El oyente %d obtuvo %d puntos\n", i, po[i]);
+        
         if (po[i] > maxp) 
         {
             maxp = po[i];
