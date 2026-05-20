@@ -121,6 +121,7 @@ int main()
     else 
     {
         printf("\nNo hubo participantes :(\n");
+         printf("\n Nadie gana buu");
     }
 
     return 0;
