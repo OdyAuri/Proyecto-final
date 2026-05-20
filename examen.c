@@ -8,7 +8,6 @@
 
 int main() 
 {
-    // Usamos los define para darle tamaño a los arreglos
     int vo[MAX][3];
     int vc[TOTAL] = {0}; 
     int po[MAX] = {0};
@@ -16,10 +15,11 @@ int main()
     int v1 = MIN, v2 = 0, v3 = 0; 
     
     // Almacenar votos
-    printf("Introduce los 3 votos separados por espacios\n");
+    printf("¡COMIENZA EL CONCURSO! \n\n");
+    printf("Introduce tus 3 votos separados por espacios\n");
     while (v1 >= MIN && num < MAX) 
     {
-        printf("Oyente %d: \n", num);
+        printf("Eres el oyente %d \n", num);
         scanf("%d %d %d", &v1, &v2, &v3);
         
         if (v1 >= MIN) 
@@ -64,7 +64,7 @@ int main()
     printf("2a cancion\n %d\n\n", id_max2);
     
     //Repartir puntos
-    int gana = -1;
+    int ganador = -1;
     int maxp = -1;
     
     for (int i = 0; i < num; i++) 
@@ -87,20 +87,20 @@ int main()
         if (bienprimera == 1 && biensegunda == 1) 
           po[i] += 10; 
         
-        if (po[i] > max) 
+        if (po[i] > maxp) 
         {
             maxp = po[i];
-            gana = i;
+            ganador = i;
         }
     }
     
     if (num > 0) 
     {
-        printf("\nEl ganador es el Oyente %d con %d puntos.\n", ganador_id, max_puntos);
+        printf("\n¡El ganador es el Oyente %d con %d puntos! :D\n", ganador, maxp);
     } 
     else 
     {
-        printf("\nNo hubo participantes.\n");
+        printf("\nNo hubo participantes :(\n");
     }
 
     return 0;
