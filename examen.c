@@ -47,10 +47,7 @@ void Leer()
                 vc[v1] += 3; vc[v2] += 2; vc[v3] += 1;
                 num++;
             } 
-            else 
-            {
-                printf("ERROR \n ¡Las canciones solo van del 0 al 9 y son 3! \n Vuelve a intentar\n\n");
-            }
+            else printf("ERROR \n ¡Las canciones solo van del 0 al 9 y son 3! \n Vuelve a intentar\n\n");
         }
     }
 }
@@ -64,12 +61,8 @@ void Top()
             max2 = max1; id_max2 = id_max1; 
             max1 = vc[i]; id_max1 = i; 
         }
-        else if (vc[i] > max2) 
-        { 
-            max2 = vc[i]; id_max2 = i; 
-        }
+        else if (vc[i] > max2) max2 = vc[i]; id_max2 = i; 
     }
-    
     printf("\nResultados de las votaciones\n");
     printf("1a cancion: %d\n", id_max1);
     printf("2a cancion: %d\n\n", id_max2);
@@ -91,16 +84,11 @@ void Repartir()
         po[i] = puntos;
         
         printf("El oyente %d obtuvo %d puntos\n", i, po[i]);
-        if (po[i] > maxp) 
-        { 
-            maxp = po[i]; ganador = i; 
-        }
+        if (po[i] > maxp) maxp = po[i]; ganador = i; 
     }
     
-    if (num > 0) 
-        printf("\n¡El ganador es el oyente %d con %d puntos! \n\n ¡Felicidades oyente %d! :D\n", ganador, maxp, ganador);
-    else 
-        printf("\nNo hubo participantes :,( Nadie gana buu\n");
+    if (num > 0) printf("\n¡El ganador es el oyente %d con %d puntos! \n\n ¡Felicidades oyente %d! :D\n", ganador, maxp, ganador);
+    else printf("\nNo hubo participantes :,( Nadie gana buu\n");
 }
 
 int main() 
